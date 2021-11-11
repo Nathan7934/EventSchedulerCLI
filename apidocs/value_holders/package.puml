@@ -1,0 +1,16 @@
+@startuml
+
+    namespace value_holders {
+
+        class MessageInfo [[MessageInfo.html]] {
+            +MessageInfo(UUID, LocalDateTime, String)
+            +getSenderId(): UUID
+            +getTime(): LocalDateTime
+            +getContent(): String
+        }
+
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

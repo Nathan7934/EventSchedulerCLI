@@ -1,0 +1,30 @@
+@startuml
+
+    class Event [[Event.html]] {
+        +Event(String, LocalDateTime, UUID, int, int, List<RoomFeatures>)
+        +getEventId(): UUID
+        +getEventName(): String
+        +getSpeakers(): HashSet<UUID>
+        +addSpeaker(UUID): void
+        +addSpeaker(HashSet<UUID>): void
+        +removeSpeaker(UUID): void
+        +getEventRoom(): UUID
+        +getAttendees(): Set<UUID>
+        +addAttendee(UUID): void
+        +removeAttendee(UUID): void
+        +getEventSchedule(): String
+        +getEventString(): String
+        +getEventDateAndTime(): LocalDateTime
+        +isUserSignedUp(UUID): boolean
+        +getCapacity(): int
+        +setCapacity(int): void
+        +getEventType(): String
+        +displayFeatures(): String
+        +hasFeature(RoomFeatures): boolean
+        +addFeature(RoomFeatures): void
+        +removeFeature(RoomFeatures): void
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+
+    class Room [[Room.html]] {
+        +Room(String, int, int, int)
+        +getRoomID(): UUID
+        +getRoomName(): String
+        +getCapacity(): int
+        +checkRoomAvailability(LocalDateTime, int): boolean
+        +bookRoom(LocalDateTime, UUID, int): void
+        +getFeatures(): List<RoomFeatures>
+        +hasFeature(RoomFeatures): boolean
+        +hasFeatures(List<RoomFeatures>): boolean
+        +displayFeatures(): String
+        +addFeature(RoomFeatures): void
+        +removeFeature(RoomFeatures): void
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

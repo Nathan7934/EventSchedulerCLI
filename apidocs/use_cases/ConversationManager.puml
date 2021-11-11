@@ -1,0 +1,22 @@
+@startuml
+
+    class ConversationManager [[ConversationManager.html]] {
+        +ConversationManager(List<Conversation>)
+        +createConversation(List<UUID>, ConvoType): UUID
+        +sendMessage(String, UUID, UUID): void
+        +replyToConversation(String, UUID, int): void
+        +findConversation(UUID): int
+        +getType(UUID): ConvoType
+        +getAllConversations(): List<Conversation>
+        +getConversationParticipants(int): List<UUID>
+        +getIdFromIndex(int): UUID
+        +isValidConversationIndex(int): boolean
+        +setEventNameForConvo(List<UUID>, String): void
+        +getEventName(UUID): String
+        +getMessagesInfo(int): List<MessageInfo>
+        +getMessageListSize(UUID): Integer
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

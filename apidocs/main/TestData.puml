@@ -1,0 +1,12 @@
+@startuml
+
+    class TestData [[TestData.html]] {
+        {static} +generateUsersDemoData(UserManager): void
+        {static} +generateRoomsDemoData(RoomManager): void
+        {static} +generateEventsDemoData(RoomManager, EventsManager, UserManager): void
+        {static} +generateConversationsDemoData(UserManager, ConversationManager): void
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

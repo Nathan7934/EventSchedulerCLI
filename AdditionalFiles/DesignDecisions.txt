@@ -1,0 +1,43 @@
+1. Splitting the UserController
+
+This is the biggest improvement we made.
+
+At first we wanted to keep the presenter close to what is was. However, the problem was if the presenter
+only stored an instance of the main controller, it could not access the methods in the sub-controllers due to polymorphism
+It would only see the methods in the main controller. We also wanted to keep the coupling between presenter and controller low.
+
+Then Nina proposed creating one main controller and each user type having its own controller. It meant that the main
+controller held instances of all managers and the other sub-controllers. If we called a method, the main controller
+would route to the specific controller and pass in the required managers. So we kept much codes of the original
+presenter and turned it into the new main controller. We also created a new presenter class to print output only.
+
+We think this is currently the best way as it reduces coupling, aligns more to the single responsibility and breaks up
+the code. More importantly, this helps to separate presenter and controller and let controllers decide the permissions.
+
+However, we also notice that some issues, e.g. this may not be perfectly extensible if we add more user types with
+unique permissions. Also, the main controller may be bloated as it contains all the methods and serves as a router.
+
+
+2. Separating presenter and controller
+
+With the new design, we only keep print methods in presenter rather than let presenter route to the method, print
+prompts to users and pass user inputs from keyboard to methods. This way we make sure that presenter is only responsible
+to display information and all logic in handled in the controllers. It clearly separates the responsibilities from
+controllers.
+
+
+3. Determining functions a user can access
+
+With the new design, instead of calling presenter, we call controller in the main app. Then, the main controller will
+direct to the proper sub-controllers and the individual controllers will implement the specific functions.
+
+
+4. Making ReadWriteSerializable multitenant
+
+Previously, we would instantiate a new ReadWriteSerializable for every type of data (i.e. eventsReadWriteSerializable, roomsReadWriteSerializable, etc.). This was unnecessary as all the needed methods for all data types could be contained within one object. It was also bloating our controller as for every new data type we had to create a new object. We refactored ReadWriteSerializable to allow it to work within one object rather than for each.
+
+
+5. Switch our ArrayList usage in interfaces of classes to use List instead.
+
+We realized that through out the code many methods and constructors were using ArrayList in parameters or return types. This was a bad design choice because we were creating a dependancy on the ArrayList class, and disallowing any future developers on our program to pass in other classes that would work just fine as long as they implement the List interface (i.e. LinkedList). To improve this, we changed all occurrences (where appropriate) of ArrayList to use List instead.
+

@@ -1,0 +1,137 @@
+@startuml
+
+    namespace use_cases {
+
+        class EventsManager [[EventsManager.html]] {
+            +EventsManager(HashMap<UUID, Event>)
+            +addEvent(String, LocalDateTime, UUID, int, int, List<RoomFeatures>): UUID
+            +getAllEvents(): HashMap<UUID, Event>
+            +addAttendee(UUID, UUID): void
+            +removeAttendee(UUID, UUID): void
+            +getEventName(UUID): String
+            +getEventDateAndTime(UUID): LocalDateTime
+            +getSpeakers(UUID): List<UUID>
+            +addSpeaker(UUID, UUID): void
+            +addSpeaker(UUID, HashSet<UUID>): void
+            +removeSpeaker(UUID, UUID): void
+            +getAttendeeList(UUID): Set<UUID>
+            +getNumAttendees(UUID): Integer
+            +getEventRoomId(UUID): UUID
+            +isUserSignedUp(UUID, UUID): boolean
+            +getEventSchedule(UUID): String
+            +getEventString(UUID): String
+            +getAllEventIds(): List<UUID>
+            +getEventsByDay(LocalDate): List<UUID>
+            +getNoConflictEventIds(List<UUID>): List<UUID>
+            +removeEvent(UUID): void
+            +getCapacity(UUID): int
+            +setCapacity(UUID, int): void
+            +getEventType(UUID): String
+            +hasFeature(UUID, RoomFeatures): boolean
+            +addFeature(UUID, RoomFeatures): void
+            +removeFeature(UUID, RoomFeatures): void
+        }
+
+        class UserRequestManager [[UserRequestManager.html]] {
+            +UserRequestManager(List<UserRequest>)
+            +addUserRequest(UUID, String, UUID): void
+            +getUserRequestByStatus(boolean): List<UserRequest>
+            +findRequestIndexById(UUID): int
+            +markUserRequestAsAddressed(int): void
+            +getAllUserRequests(): List<UserRequest>
+        }
+
+        class UserManager [[UserManager.html]] {
+            +UserManager(List<User>)
+            +getAllUsers(): List<User>
+            +findUserIndexById(UUID): int
+            +findUserByEmail(String): int
+            +getUserByIndex(int): User
+            +createUser(String, String, String, UserType): void
+            +addFriendById(UUID): void
+            +removeFriendById(UUID): void
+            +getEventList(): List<UUID>
+            +registerEventById(UUID): void
+            +cancelEventById(UUID): void
+            +startConversationById(UUID): void
+            +getUserIdByIndex(int): UUID
+            +addConversation(UUID, int): void
+            +markConversationAsUnread(UUID, int): void
+            +markConversationAsRead(UUID): void
+            +archiveConversation(UUID, Integer, int): void
+            +deleteConversation(UUID, Integer, int): void
+            +getArchivedConversationsList(): HashMap<UUID, Integer>
+            +getDeletedConversationsList(): HashMap<UUID, Integer>
+            +getUnreadConversationList(): List<UUID>
+            +getIndexOfActiveUser(): int
+            +hasConversation(UUID): boolean
+            +getConversations(): List<UUID>
+            +getUserName(int): String
+            +getFriends(): List<UUID>
+            +getEmail(UUID): String
+            +isFriend(int): boolean
+            +userHasMeAsFriend(int): boolean
+            +getActiveUserId(): UUID
+            +getActiveUserType(): UserType
+            +setUserType(int, UserType): void
+            +getIsUserLoggedIn(): boolean
+            +isValidUserIndex(int): boolean
+            +logout(): void
+            +loginAsAGuest(): String
+            +checkCredential(String, String): boolean
+            +login(String, String): boolean
+            +getAllUsersOfType(UserType): List<UUID>
+            +displayUsers(List<UUID>): List<String>
+            +setName(User, String): void
+            +removeEvent(User, UUID): void
+            +getAllVipUsers(): HashSet<UUID>
+            +interestedInEvent(UUID): boolean
+            +uninterestedInEvent(UUID): boolean
+            +getInterestedEventsIds(): HashSet<UUID>
+            +likeSpeakerById(UUID): boolean
+            +dislikeSpeakerById(UUID): boolean
+            +getFavouriteSpeakersId(): List<UUID>
+            +isFavouriteSpeaker(UUID, UUID): boolean
+        }
+
+        class RoomManager [[RoomManager.html]] {
+            +RoomManager(HashMap<UUID, Room>)
+            +addRoom(String, int, int, int): UUID
+            +getRoomCapacity(UUID): Integer
+            +getRoom(UUID): Room
+            +getAllRooms(): HashMap<UUID, Room>
+            +getRoomName(UUID): String
+            +bookRoom(UUID, LocalDateTime, UUID, int): void
+            +checkRoomAvailability(UUID, LocalDateTime, int): boolean
+            +getAllRoomIds(): List<UUID>
+            +displayRooms(List<UUID>): List<String>
+            +removeBooking(LocalDateTime): void
+            +getFeaturesDisplay(UUID): String
+            +hasFeature(UUID, RoomFeatures): boolean
+            +hasFeatures(UUID, List<RoomFeatures>): boolean
+            +addFeature(UUID, RoomFeatures): void
+            +removeFeature(UUID, RoomFeatures): void
+        }
+
+        class ConversationManager [[ConversationManager.html]] {
+            +ConversationManager(List<Conversation>)
+            +createConversation(List<UUID>, ConvoType): UUID
+            +sendMessage(String, UUID, UUID): void
+            +replyToConversation(String, UUID, int): void
+            +findConversation(UUID): int
+            +getType(UUID): ConvoType
+            +getAllConversations(): List<Conversation>
+            +getConversationParticipants(int): List<UUID>
+            +getIdFromIndex(int): UUID
+            +isValidConversationIndex(int): boolean
+            +setEventNameForConvo(List<UUID>, String): void
+            +getEventName(UUID): String
+            +getMessagesInfo(int): List<MessageInfo>
+            +getMessageListSize(UUID): Integer
+        }
+
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+
+    class SpeakerController [[SpeakerController.html]] {
+        +sendMessageToEventAttendees(EventsManager, UserManager, ConversationManager, String, UUID): String
+        +getScheduledTalkIds(UserManager, EventsManager, UUID): List<UUID>
+        +viewScheduledTalks(UserManager, EventsManager, RoomManager, UUID): String
+        +viewEventAttendees(EventsManager, UserManager, UUID): String
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

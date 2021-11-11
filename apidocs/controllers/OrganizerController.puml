@@ -1,0 +1,18 @@
+@startuml
+
+    class OrganizerController [[OrganizerController.html]] {
+        +sendMessageToAll(UserManager, ConversationManager, String, UserType): String
+        +createNewEvent(RoomManager, EventsManager, UserManager, ConversationManager, String, LocalDateTime, UUID, HashSet<UUID>, int, int, List<RoomFeatures>): String
+        +createUser(UserManager, String, String, String, String): String
+        +changeUserType(UserManager, String, String, String): String
+        +editRoomFeature(RoomManager, UUID, String): String
+        +addNewRooms(RoomManager, String, int, int, int): UUID
+        +addSpeaker(EventsManager, UUID, UUID): String
+        +removeSpeaker(EventsManager, UUID, UUID): String
+        +cancelEvent(EventsManager, UserManager, RoomManager, UUID): void
+        +changeEventCapacity(EventsManager, UUID, int): String
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

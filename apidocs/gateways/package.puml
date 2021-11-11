@@ -1,0 +1,28 @@
+@startuml
+
+    namespace gateways {
+
+        class ReadWriteSerializable [[ReadWriteSerializable.html]] {
+            {static} +CONVERSATIONS_FILEPATH: String
+            {static} +EVENTS_FILEPATH: String
+            {static} +ROOMS_FILEPATH: String
+            {static} +USERS_FILEPATH: String
+            {static} +USER_REQUESTS_FILEPATH: String
+            +conversationsReadFromSerializable(): List<Conversation>
+            +conversationsWriteToSerializable(List<Conversation>): void
+            +eventsReadFromSerializable(): HashMap<UUID, Event>
+            +eventsWriteToSerializable(HashMap<UUID, Event>): void
+            +roomsReadFromSerializable(): HashMap<UUID, Room>
+            +roomsWriteToSerializable(HashMap<UUID, Room>): void
+            +usersReadFromSerializable(): List<User>
+            +usersWriteToSerializable(List<User>): void
+            +userRequestsReadFromSerializable(): List<UserRequest>
+            +userRequestsWriteToSerializable(List<UserRequest>): void
+            +hasSaveData(): boolean
+        }
+
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

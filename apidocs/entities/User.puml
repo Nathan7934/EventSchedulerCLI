@@ -1,0 +1,29 @@
+@startuml
+
+    class User [[User.html]] {
+        +User(String, String, String, UserType)
+        +getType(): UserType
+        +setType(UserType): void
+        +setName(String): void
+        +getEventsList(): ArrayList<UUID>
+        +getFriendsList(): ArrayList<UUID>
+        +getConversationList(): ArrayList<UUID>
+        +getUnreadConversationsList(): ArrayList<UUID>
+        +getArchivedConversationsList(): HashMap<UUID, Integer>
+        +getDeletedConversationsList(): HashMap<UUID, Integer>
+        +getName(): String
+        +getId(): UUID
+        +getPassword(): String
+        +getEmail(): String
+        +addToFriendsList(UUID): void
+        +removeFromFriendsList(UUID): void
+        +addToEventsList(UUID): void
+        +removeFromEventsList(UUID): void
+        +addToConversationsList(UUID): void
+        +removeFromConversationsList(UUID): void
+        +addToHashMap(HashMap<UUID, Integer>, UUID, Integer): void
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

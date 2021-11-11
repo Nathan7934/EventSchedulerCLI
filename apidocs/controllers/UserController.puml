@@ -1,0 +1,35 @@
+@startuml
+
+    class UserController [[UserController.html]] {
+        +getUserOptions(UserManager): List<UserOption>
+        +loginAsAGuest(UserManager): String
+        +login(UserManager, String, String): boolean
+        +logout(UserManager): void
+        +sendMessage(UserManager, ConversationManager, String, ArrayList<Integer>, ConvoType): String
+        +replyToConversation(ConversationManager, UserManager, String, int): String
+        +deleteConversation(ConversationManager, UserManager, int, int): void
+        +archiveConversation(ConversationManager, UserManager, int, int): void
+        +markConversationAsUnread(ConversationManager, UserManager, int): void
+        +signUpToEvent(UserManager, EventsManager, RoomManager, UUID): String
+        +disEnrollToEvent(UserManager, EventsManager, UUID): String
+        +getAllEventIds(EventsManager): List<UUID>
+        +getAllEvents(EventsManager): List<Event>
+        +getSpeakers(EventsManager, UUID): List<UUID>
+        +viewEventsByDay(EventsManager, RoomManager, LocalDate): String
+        +viewConversations(UserManager, ConversationManager): String
+        +viewMessages(UserManager, ConversationManager, int): String
+        +viewAllFriends(UserManager): String
+        +addFriend(UserManager, String): String
+        +removeFriend(UserManager, String): String
+        +displayUsersFromIdList(UserManager, List<UUID>): String
+        +viewUserRequests(UserRequestManager, UserManager, EventsManager): String
+        +addUserRequest(UserRequestManager, UserManager, String, UUID): void
+        +markUserRequestAsAddressed(UserRequestManager, int): void
+        +getUserName(UserManager, UUID): String
+        +statsGetTopEnrolledEvents(EventsManager): HashMap<String, Integer>
+        +statsGetTopEnrolledUsers(UserManager): HashMap<String, Integer>
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

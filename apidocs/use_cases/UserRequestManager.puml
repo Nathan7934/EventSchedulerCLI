@@ -1,0 +1,14 @@
+@startuml
+
+    class UserRequestManager [[UserRequestManager.html]] {
+        +UserRequestManager(List<UserRequest>)
+        +addUserRequest(UUID, String, UUID): void
+        +getUserRequestByStatus(boolean): List<UserRequest>
+        +findRequestIndexById(UUID): int
+        +markUserRequestAsAddressed(int): void
+        +getAllUserRequests(): List<UserRequest>
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

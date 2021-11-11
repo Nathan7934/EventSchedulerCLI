@@ -1,0 +1,15 @@
+@startuml
+
+    class VipController [[VipController.html]] {
+        +getInterestedEventIds(UserManager): List<UUID>
+        +uninterestedInEvent(UserManager, UUID): String
+        +interestedInEvent(UserManager, UUID): String
+        +viewFavouriteSpeakers(UserManager): String
+        +addFavouriteSpeaker(UserManager, UUID): String
+        +removeFavouriteSpeaker(UserManager, UUID): String
+        +getFavouriteSpeakersIds(UserManager): List<UUID>
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

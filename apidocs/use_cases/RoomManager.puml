@@ -1,0 +1,24 @@
+@startuml
+
+    class RoomManager [[RoomManager.html]] {
+        +RoomManager(HashMap<UUID, Room>)
+        +addRoom(String, int, int, int): UUID
+        +getRoomCapacity(UUID): Integer
+        +getRoom(UUID): Room
+        +getAllRooms(): HashMap<UUID, Room>
+        +getRoomName(UUID): String
+        +bookRoom(UUID, LocalDateTime, UUID, int): void
+        +checkRoomAvailability(UUID, LocalDateTime, int): boolean
+        +getAllRoomIds(): List<UUID>
+        +displayRooms(List<UUID>): List<String>
+        +removeBooking(LocalDateTime): void
+        +getFeaturesDisplay(UUID): String
+        +hasFeature(UUID, RoomFeatures): boolean
+        +hasFeatures(UUID, List<RoomFeatures>): boolean
+        +addFeature(UUID, RoomFeatures): void
+        +removeFeature(UUID, RoomFeatures): void
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

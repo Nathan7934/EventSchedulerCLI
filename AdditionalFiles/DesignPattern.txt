@@ -1,0 +1,31 @@
+Design Patterns
+------------------------------------------
+A list of design patterns that you used and why/how.
+
+Iterator design pattern:
+    Goal: To traverse a list and access each element
+    Implementation: Using the iterator class inside ArrayList to implement the for-loop
+    Classes involved: Many examples, Event, Room, ConversationManager, EventsManager, RoomManager, UserManager,
+    UserRequestManager, MainController, OrganizerController, SpeakerController, UserController, ReadWriteSerializable
+
+
+---------------------------------------------
+Why We Didn’t Implement Design Patterns
+
+Observer:
+    We first thought we can apply the Observer design pattern when we implement newsForVips functionality. That is when
+    the new event is created with a speaker whom one of the VIPs has as their favourites, we notify the VIPs by
+    messaging them. We saw cause(creation of event) and effects(messaging VIPs), so it would be a good idea to separate
+    them.
+
+    However, we ended up not implementing it due to a very weak cause-effect relationship; the cause-effect will happen
+    once since we only create an event once. We do not recreate a new event, so we do not need to notify the Vips. Only
+    one-time action is required because we only notify the Vips when an event is newly created, meaning the messaging
+    system does not need to keep track of events all the time. Hence, we saw implementing the Observer pattern not very
+    efficient. There is one potential cause, and then there is no other. This is because it does not produce any
+    potential cause to produce results after just one time.
+
+Strategy:
+    We thought about using the strategy pattern when we displayed the events as we allow different filtering conditions
+    (e.g. by day, by speaker, etc.). It seems that we were achieving the same result just in different ways. However,
+    since these features were only performed by on class (event) it was easier to just write different methods.

@@ -1,0 +1,16 @@
+@startuml
+
+    class Conversation [[Conversation.html]] {
+        +Conversation(List<UUID>, ConvoType)
+        +addMessage(Message): void
+        +getId(): UUID
+        +getMessageList(): List<Message>
+        +getParticipants(): List<UUID>
+        +getType(): ConvoType
+        +setEventName(String): void
+        +getEventName(): String
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

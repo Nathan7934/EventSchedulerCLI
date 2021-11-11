@@ -1,0 +1,40 @@
+Mandatory Extensions:
+========================
+1. Event type: we allow one-speaker event, multi-speaker events, and no-speaker events
+
+2. Cancel event: organizers are able to cancel events
+
+3. User type: we added Guest user (browse events only) and VIP user (additional features such as create party, etc)
+
+4. Create account: organizer can create a user account of any type except for Guest as Guest does not have an account
+
+5. Event capacity: organizer can specify the event capacity when creating the event
+
+
+Optional Extensions:
+========================
+1. Extra message function: allows users to mark as unread, delete, or archive messages after reading them
+
+2. Conference schedule: prints the schedule to the screen, and users are able to request a schedule by day,
+by speaker, and the ones they have signed up for
+
+3. Schedule constraints: organizers can choose additional features of the room when creating an event, e.g. facilities
+and room setup, and the program will suggest a list of rooms that fit the requirements
+
+4. Additional user requests: allows users to submit additional user requests (e.g. dietary restrictions,
+accessibility requirements) where organizers can manage the requests
+
+5. Summary stats: shows useful summary stats about the conference with bar charts
+
+
+Create our own features:
+========================
+1. Chat in a group: SendMessage allows sending message to multiple friends (Implemented in Phase 1)
+
+2. Organize chats: Displaying messages based on category, i.e. Personal Messages, Organizer Messages and Speaker Messages
+
+3. Change user type: Organizers can change existing users' user type, e.g. ATTENDEE -> VIP
+
+4. Save program data: In addition to saving event and room data, we also save user and message data.
+
+5. View a list of friends: Friend refers to other users that you can send message to and receive message from.

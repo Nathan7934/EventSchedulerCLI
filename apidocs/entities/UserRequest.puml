@@ -1,0 +1,15 @@
+@startuml
+
+    class UserRequest [[UserRequest.html]] {
+        +UserRequest(UUID, String, UUID)
+        +getIsAddressed(): boolean
+        +getSenderId(): UUID
+        +getAssociatedEventId(): UUID
+        +getContent(): String
+        +getId(): UUID
+        +setIsAddressed(boolean): void
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

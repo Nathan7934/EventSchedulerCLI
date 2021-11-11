@@ -1,0 +1,14 @@
+@startuml
+
+    enum UserType [[UserType.html]] {
+        {static} +ATTENDEE
+        {static} +ORGANIZER
+        {static} +SPEAKER
+        {static} +GUEST
+        {static} +VIP
+        {static} +optionsFor(UserType): List<UserOption>
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

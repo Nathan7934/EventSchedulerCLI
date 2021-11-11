@@ -1,0 +1,46 @@
+@startuml
+
+    enum UserOption [[UserOption.html]] {
+        {static} +ACCESS_MESSAGING
+        {static} +VIEW_AVAILABLE_EVENTS
+        {static} +VIEW_ALL_EVENTS
+        {static} +VIEW_SIGN_UP_EVENTS
+        {static} +VIEW_EVENTS_BY_DAY
+        {static} +VIEW_EVENTS_BY_SPEAKER
+        {static} +SIGN_UP_FOR_EVENT
+        {static} +CANCEL_SPOT_FOR_EVENT
+        {static} +CREATE_EVENT
+        {static} +CREATE_USER
+        {static} +CHANGE_USER_TYPE
+        {static} +SEND_MESSAGE_TO_EVENT_ATTENDEES
+        {static} +SEND_MESSAGE_TO_ALL
+        {static} +VIEW_SCHEDULED_TALK
+        {static} +VIEW_TALK_ATTENDEES
+        {static} +SCHEDULE_SPEAKER_TALK
+        {static} +ADD_ROOMS
+        {static} +VIEW_CONFERENCE_STATS
+        {static} +REMOVE_SPEAKER
+        {static} +CANCEL_EVENT
+        {static} +CHANGE_CAPACITY
+        {static} +VIEW_USER_REQUESTS
+        {static} +ADDRESS_USER_REQUEST
+        {static} +LOG_IN
+        {static} +LOG_OUT
+        {static} +EXIT
+        {static} +EXPLORE_AS_A_GUEST
+        {static} +VIEW_FAVOURITE_SPEAKERS
+        {static} +CREATE_PARTY
+        {static} +VIEW_INTERESTED_EVENTS
+        {static} +MANAGE_INTERESTED_EVENTS
+        {static} +MANAGE_FAVOURITE_SPEAKERS
+        {static} +ATTENDEE_OPTIONS: List<UserOption>
+        {static} +ORGANIZER_OPTIONS: List<UserOption>
+        {static} +SPEAKER_OPTIONS: List<UserOption>
+        {static} +GUEST_OPTIONS: List<UserOption>
+        {static} +VIP_OPTIONS: List<UserOption>
+        +toString(): String
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

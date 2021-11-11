@@ -1,0 +1,35 @@
+@startuml
+
+    class EventsManager [[EventsManager.html]] {
+        +EventsManager(HashMap<UUID, Event>)
+        +addEvent(String, LocalDateTime, UUID, int, int, List<RoomFeatures>): UUID
+        +getAllEvents(): HashMap<UUID, Event>
+        +addAttendee(UUID, UUID): void
+        +removeAttendee(UUID, UUID): void
+        +getEventName(UUID): String
+        +getEventDateAndTime(UUID): LocalDateTime
+        +getSpeakers(UUID): List<UUID>
+        +addSpeaker(UUID, UUID): void
+        +addSpeaker(UUID, HashSet<UUID>): void
+        +removeSpeaker(UUID, UUID): void
+        +getAttendeeList(UUID): Set<UUID>
+        +getNumAttendees(UUID): Integer
+        +getEventRoomId(UUID): UUID
+        +isUserSignedUp(UUID, UUID): boolean
+        +getEventSchedule(UUID): String
+        +getEventString(UUID): String
+        +getAllEventIds(): List<UUID>
+        +getEventsByDay(LocalDate): List<UUID>
+        +getNoConflictEventIds(List<UUID>): List<UUID>
+        +removeEvent(UUID): void
+        +getCapacity(UUID): int
+        +setCapacity(UUID, int): void
+        +getEventType(UUID): String
+        +hasFeature(UUID, RoomFeatures): boolean
+        +addFeature(UUID, RoomFeatures): void
+        +removeFeature(UUID, RoomFeatures): void
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

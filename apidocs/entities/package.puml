@@ -1,0 +1,128 @@
+@startuml
+
+    namespace entities {
+
+        class Conversation [[Conversation.html]] {
+            +Conversation(List<UUID>, ConvoType)
+            +addMessage(Message): void
+            +getId(): UUID
+            +getParticipants(): List<UUID>
+            +getType(): ConvoType
+            +setEventName(String): void
+            +getEventName(): String
+        }
+
+        class Event [[Event.html]] {
+            +Event(String, LocalDateTime, UUID, int, int, List<RoomFeatures>)
+            +getEventId(): UUID
+            +getEventName(): String
+            +getSpeakers(): HashSet<UUID>
+            +addSpeaker(UUID): void
+            +addSpeaker(HashSet<UUID>): void
+            +removeSpeaker(UUID): void
+            +getEventRoom(): UUID
+            +getAttendees(): Set<UUID>
+            +addAttendee(UUID): void
+            +removeAttendee(UUID): void
+            +getEventSchedule(): String
+            +getEventString(): String
+            +getEventDateAndTime(): LocalDateTime
+            +isUserSignedUp(UUID): boolean
+            +getCapacity(): int
+            +setCapacity(int): void
+            +getEventType(): String
+            +displayFeatures(): String
+            +hasFeature(RoomFeatures): boolean
+            +addFeature(RoomFeatures): void
+            +removeFeature(RoomFeatures): void
+        }
+
+        class UserRequest [[UserRequest.html]] {
+            +UserRequest(UUID, String, UUID)
+            +getIsAddressed(): boolean
+            +getSenderId(): UUID
+            +getAssociatedEventId(): UUID
+            +getContent(): String
+            +getId(): UUID
+            +setIsAddressed(boolean): void
+        }
+
+        class Vip [[Vip.html]] {
+            +Vip(String, String, String)
+            +interestedInEventId(UUID): void
+            +uninterestedInEventId(UUID): void
+            +getInterestedEventsIds(): HashSet<UUID>
+            +likeSpeakerById(UUID): void
+            +dislikeSpeakerById(UUID): void
+            +getFavouriteSpeakersId(): HashSet<UUID>
+        }
+
+        class User [[User.html]] {
+            +User(String, String, String, UserType)
+            +getType(): UserType
+            +setType(UserType): void
+            +setName(String): void
+            +getEventsList(): ArrayList<UUID>
+            +getFriendsList(): ArrayList<UUID>
+            +getConversationList(): ArrayList<UUID>
+            +getUnreadConversationsList(): ArrayList<UUID>
+            +getArchivedConversationsList(): HashMap<UUID, Integer>
+            +getDeletedConversationsList(): HashMap<UUID, Integer>
+            +getName(): String
+            +getId(): UUID
+            +getPassword(): String
+            +getEmail(): String
+            +addToFriendsList(UUID): void
+            +removeFromFriendsList(UUID): void
+            +addToEventsList(UUID): void
+            +removeFromEventsList(UUID): void
+            +addToConversationsList(UUID): void
+            +removeFromConversationsList(UUID): void
+            +addToHashMap(HashMap<UUID, Integer>, UUID, Integer): void
+        }
+
+        class Room [[Room.html]] {
+            +Room(String, int, int, int)
+            +getRoomID(): UUID
+            +getRoomName(): String
+            +getCapacity(): int
+            +checkRoomAvailability(LocalDateTime, int): boolean
+            +bookRoom(LocalDateTime, UUID, int): void
+            +getFeatures(): List<RoomFeatures>
+            +hasFeature(RoomFeatures): boolean
+            +hasFeatures(List<RoomFeatures>): boolean
+            +displayFeatures(): String
+            +addFeature(RoomFeatures): void
+            +removeFeature(RoomFeatures): void
+        }
+
+        class Message [[Message.html]] {
+            +Message(UUID, String)
+            +getId(): UUID
+            +getTime(): LocalDateTime
+            +getSenderId(): UUID
+            +getContent(): String
+        }
+
+        interface java.io.Serializable
+        java.io.Serializable <|.. Conversation
+
+        java.io.Serializable <|.. Event
+
+        java.io.Serializable <|.. UserRequest
+
+        User <|-- Vip
+
+        java.io.Serializable <|.. User
+
+        java.io.Serializable <|.. Room
+
+        java.io.Serializable <|.. Message
+
+        Conversation --> "*" Message: messageList
+
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

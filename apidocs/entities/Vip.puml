@@ -1,0 +1,15 @@
+@startuml
+
+    class Vip [[Vip.html]] {
+        +Vip(String, String, String)
+        +interestedInEventId(UUID): void
+        +uninterestedInEventId(UUID): void
+        +getInterestedEventsIds(): HashSet<UUID>
+        +likeSpeakerById(UUID): void
+        +dislikeSpeakerById(UUID): void
+        +getFavouriteSpeakersId(): HashSet<UUID>
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml

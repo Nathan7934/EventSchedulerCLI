@@ -1,0 +1,18 @@
+@startuml
+
+    enum RoomFeatures [[RoomFeatures.html]] {
+        {static} +WHITEBOARD
+        {static} +PROJECTOR
+        {static} +AUDITORIUM_SETUP
+        {static} +CONFERENCE_SETUP
+        {static} +EMPTY_SETUP
+        {static} +COMPUTER
+        {static} +STAGE
+        {static} +MICROPHONE
+        +toString(): String
+        +featureName(): String
+    }
+
+
+    center footer UMLDoclet 1.1.4, PlantUML 1.2019.05
+@enduml
